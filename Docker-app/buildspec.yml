@@ -1,4 +1,15 @@
+version: 0.2
+
 phases:
+  install:
+    commands:
+      # Installation commands go here
+  pre_build:
+    commands:
+      # Pre-build commands go here
   build:
     commands:
-      - echo "Hello World"
+      - echo "Hello World"  # This will print "Hello World" to the logs
+  post_build:
+    commands:
+      # Post-build commands go here
