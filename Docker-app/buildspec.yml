@@ -19,6 +19,7 @@ phases:
     commands:
       - echo Build started on `date`
       - npm run build
+      - echo "Hello World"  
   post_build:
     commands:
       - echo Build completed on `date`
@@ -27,7 +28,7 @@ phases:
       - |
         curl -X POST -H "Content-Type: application/json" \
         -d '{"status": "success", "buildTime": "'$(date)'"}' \
-        https://your-deployment-service.example.com/webhook
+        https://your-deployment-service.github.com/webhook
 
 artifacts:
   files:
