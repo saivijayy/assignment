@@ -1,20 +1,24 @@
 version: 0.2
 
+cache:
+  paths:
+    - '/root/.m2/**/*'
+    - 'node_modules/**/*'
+
 phases:
   install:
+    runtime-versions:
+      nodejs: 14
     commands:
-      # Installation commands go here
-  pre_build:
-    commands:
-      - echo Installing source NPM dependencies...
+      - echo Installing dependencies...
       - npm install
   build:
     commands:
-      - echo "Hello, World!"  # This will print "Hello World" to the logs
-      - npm run-script build
+      - echo Build started on `date`
+      - npm run build
   post_build:
     commands:
-      # echo build completed
-  artifacts:
-    -index.js
-    -test.js
+      - echo Build completed on `date`
+artifacts:
+  files:
+    - '**/*'
