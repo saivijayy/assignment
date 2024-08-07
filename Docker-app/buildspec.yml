@@ -6,10 +6,15 @@ phases:
       # Installation commands go here
   pre_build:
     commands:
-      # Pre-build commands go here
+      - echo Installing source NPM dependencies...
+      - npm install
   build:
     commands:
       - echo "Hello, World!"  # This will print "Hello World" to the logs
+      - npm run-script build
   post_build:
     commands:
-      # Post-build commands go here
+      # echo build completed
+  artifacts:
+    -index.js
+    -test.js
