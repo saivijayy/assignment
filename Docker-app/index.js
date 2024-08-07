@@ -1,8 +1,6 @@
-// index.js
-
 const http = require('http');
 
-const hostname = '0.0.0.0';
+const hostname = '13.235.68.30';
 const port = 8080;
 
 const server = http.createServer((req, res) => {
@@ -16,3 +14,4 @@ server.listen(port, hostname, () => {
 });
 
 console.log("Hello, world!");
+
