@@ -12,6 +12,9 @@ phases:
     commands:
       - echo Installing dependencies...
       - npm install
+  pre_build:
+    commands:
+      - echo Preparing the build...
   build:
     commands:
       - echo Build started on `date`
@@ -19,6 +22,13 @@ phases:
   post_build:
     commands:
       - echo Build completed on `date`
+      - npm test
+      - echo Notifying deployment service...
+      - |
+        curl -X POST -H "Content-Type: application/json" \
+        -d '{"status": "success", "buildTime": "'$(date)'"}' \
+        https://your-deployment-service.example.com/webhook
+
 artifacts:
   files:
     - '**/*'
